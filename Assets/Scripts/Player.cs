@@ -52,21 +52,6 @@ public class Player : MonoBehaviour
         Fire();
     }
 
-    IEnumerator FireContinuously()
-    {
-        while (true)
-        {
-            var laser = Instantiate(
-                laserPrefab,
-                transform.position,
-                Quaternion.identity) as GameObject;
-
-            laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, projectileSpeed);
-
-            yield return new WaitForSeconds(projectileFiringPeriod);
-        }
-    }
-
     private void Fire()
     {
         if (Input.GetButtonDown("Fire1"))
@@ -83,6 +68,21 @@ public class Player : MonoBehaviour
             isFiring = false;
         }
     }
+
+    IEnumerator FireContinuously()
+    {
+        while (true)
+        {
+            var laser = Instantiate(
+                laserPrefab,
+                transform.position,
+                Quaternion.identity) as GameObject;
+
+            laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, projectileSpeed);
+
+            yield return new WaitForSeconds(projectileFiringPeriod);
+        }
+    }    
 
     private void Move()
     {
