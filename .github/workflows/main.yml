@@ -3,9 +3,29 @@ on: [push]
 jobs:
 
   buildForWebGL:
+
     name: Build for WebGL 🕸
+
     runs-on: ubuntu-latest
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        projectPath:
+          - path/to/your/project
+        unityVersion:
+          - 2018.3.0f2
+        targetPlatform:
+          - WebGL
+
     steps:
+
+      # Activate Unity
+      - name: Activate Unity
+        uses: webbertakken/unity-activate@v1
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+
       # Checkout repository (required to test local actions)
       - name: Checkout repository
         uses: actions/checkout@v1
@@ -14,13 +34,10 @@ jobs:
       - name: Build project
         id: buildStep
         uses: webbertakken/unity-builder@v0.3
-        env:
-          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-          UNITY_PROJECT_PATH: LaserDefender
-          BUILD_NAME: TestBuild
-          BUILD_TARGET: WebGL
-          BUILDS_PATH: builds
-          BUILD_COMMAND: ""
+        with:
+          projectPath: ${{ matrix.projectPath }}
+          unityVersion: ${{ matrix.unityVersion }}
+          targetPlatform: ${{ matrix.targetPlatform }}
 
       # Upload distributables
       - name: Upload Build
