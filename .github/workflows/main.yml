@@ -7,37 +7,27 @@ jobs:
     name: Build for WebGL 🕸
 
     runs-on: ubuntu-latest
-    
-    strategy:
-      fail-fast: false
-      matrix:
-        projectPath:
-          - LaserDefender
-        unityVersion:
-          - 2018.3.0f2
-        targetPlatform:
-          - WebGL
 
     steps:
+
+      # Checkout repository (required to test local actions)
+      - name: Checkout repository
+        uses: actions/checkout@v1
 
       # Activate Unity
       - name: Activate Unity
         uses: webbertakken/unity-activate@v1
         env:
-          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-
-      # Checkout repository (required to test local actions)
-      - name: Checkout repository
-        uses: actions/checkout@v1
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}      
 
       # Configure builder
       - name: Build project
         id: buildStep
         uses: webbertakken/unity-builder@v0.3
         with:
-          projectPath: ${{ matrix.projectPath }}
-          unityVersion: ${{ matrix.unityVersion }}
-          targetPlatform: ${{ matrix.targetPlatform }}
+          projectPath: LaserDefender
+          unityVersion: 2018.3.0f2
+          targetPlatform: WebGL
           buildsPath: Build
 
       # Upload distributables
