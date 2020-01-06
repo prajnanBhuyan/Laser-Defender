@@ -12,7 +12,7 @@ jobs:
       fail-fast: false
       matrix:
         projectPath:
-          - path/to/your/project
+          - LaserDefender
         unityVersion:
           - 2018.3.0f2
         targetPlatform:
@@ -38,10 +38,11 @@ jobs:
           projectPath: ${{ matrix.projectPath }}
           unityVersion: ${{ matrix.unityVersion }}
           targetPlatform: ${{ matrix.targetPlatform }}
+          buildsPath: Build
 
       # Upload distributables
       - name: Upload Build
         uses: actions/upload-artifact@v1
         with:
           name: Build
-          path: ${{ steps.buildStep.outputs.allBuildsPath }}
+          path: ${{ steps.buildStep.outputs.buildPath }}
