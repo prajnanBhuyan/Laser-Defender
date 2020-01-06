@@ -13,7 +13,7 @@ jobs:
       # Configure builder
       - name: Build project
         id: buildStep
-        uses: webbertakken/unity-builder@v0.1
+        uses: webbertakken/unity-builder@v0.3
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
           UNITY_PROJECT_PATH: LaserDefender
