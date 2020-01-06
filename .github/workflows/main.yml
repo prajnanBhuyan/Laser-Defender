@@ -10,15 +10,15 @@ jobs:
 
     steps:
 
-      # Checkout repository (required to test local actions)
-      - name: Checkout repository
-        uses: actions/checkout@v1
-
       # Activate Unity
       - name: Activate Unity
         uses: webbertakken/unity-activate@v1
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}      
+
+      # Checkout repository (required to test local actions)
+      - name: Checkout repository
+        uses: actions/checkout@v1
 
       # Configure builder
       - name: Build project
