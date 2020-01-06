@@ -1,40 +1,29 @@
 name: Build project
 on: [push]
 jobs:
-  buildForSomePlatforms:
-    name: Build for ${{ matrix.targetPlatform }} on version ${{ matrix.unityVersion }}
+  buildForWebGL:
+    name: Build for WebGL 🕸
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        projectPath:
-          - ./
-        unityVersion:
-          - 2018.3.0f2
-        targetPlatform:
-          - WebGL
     steps:
+      # Checkout repository (required to test local actions)
       - name: Checkout repository
         uses: actions/checkout@v1
 
-      - name: Unity - Activate
-        uses: webbertakken/unity-activate@v1
+      # Configure builder
+      - name: Build project
+        id: buildStep
+        uses: webbertakken/unity-builder@v0.1
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_PROJECT_PATH: ./
+          BUILD_NAME: TestBuild
+          BUILD_TARGET: WebGL
+          BUILDS_PATH: builds
+          BUILD_COMMAND: ""
 
-      - name: Build project
-        uses: webbertakken/unity-builder@v0.3
-        with:
-          projectPath: ${{ matrix.projectPath }}
-          unityVersion: ${{ matrix.unityVersion }}
-          targetPlatform: ${{ matrix.targetPlatform }}
-
-      - name: Return license
-        uses: webbertakken/unity-return-license@v1
-        if: always()
-
+      # Upload distributables
       - name: Upload Build
         uses: actions/upload-artifact@v1
         with:
           name: Build
-          path: build
+          path: ${{ steps.buildStep.outputs.allBuildsPath }}
