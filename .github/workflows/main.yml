@@ -26,7 +26,7 @@ jobs:
         uses: webbertakken/unity-builder@master
         with:
           projectPath: LaserDefender
-          unityVersion: 2018.3.0f2
+          unityVersion: Unity_v2019.2.11f1
           targetPlatform: WebGL
           buildsPath: Build
 
