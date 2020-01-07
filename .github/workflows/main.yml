@@ -10,20 +10,20 @@ jobs:
 
     steps:
 
+      # Checkout repository (required to test local actions)
+      - name: Checkout repository
+        uses: actions/checkout@v1
+
       # Activate Unity
       - name: Activate Unity
         uses: webbertakken/unity-activate@v1
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}      
 
-      # Checkout repository (required to test local actions)
-      - name: Checkout repository
-        uses: actions/checkout@v1
-
       # Configure builder
       - name: Build project
         id: buildStep
-        uses: webbertakken/unity-builder@v0.3
+        uses: webbertakken/unity-builder@master
         with:
           projectPath: LaserDefender
           unityVersion: 2018.3.0f2
