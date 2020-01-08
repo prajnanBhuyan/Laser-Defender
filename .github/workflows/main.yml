@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: webbertakken/unity-activate@v1
-      - uses: webbertakken/unity-builder@v0.3
+      - uses: webbertakken/unity-builder@v0.4
         with:
           projectPath: ${{ matrix.projectPath }}
           unityVersion: ${{ matrix.unityVersion }}
