@@ -3,33 +3,33 @@ name: Actions 😎
 on: [push]
 
 env:
-  UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+  BUILD_NAME: LaserDefender
+  UNITY_LICENSE_CONTENT: ${{ secrets.UNITY_LICENSE }}
 
 jobs:
-  buildForAllPlatforms:
-    name: Building Laser Defender
+
+  buildForWebGL:
+    name: Build Laser Defender for WebGL 🕸
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        projectPath:
-          - LaserDefender
-        unityVersion:
-          - 2018.3.0f2
-        targetPlatform:
-          - WebGL
+    env:
+      BUILD_TARGET: WebGL
+      IMAGE_NAME: gableroux/unity3d:2018.3.0f2-webgl
 
     steps:
-      - uses: actions/checkout@v1
-      - uses: webbertakken/unity-activate@v1
-      - uses: webbertakken/unity-builder@v0.4
-        with:
-          projectPath: ${{ matrix.projectPath }}
-          unityVersion: ${{ matrix.unityVersion }}
-          targetPlatform: ${{ matrix.targetPlatform }}
-      - uses: webbertakken/unity-return-license@v1
-        if: always()
-      - uses: actions/upload-artifact@v1
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Build
+        run: "chmod +x ./ci/docker_build.sh && ./ci/docker_build.sh"
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v1
         with:
           name: Build
-          path: build
+          path: Builds/$BUILD_TARGET
+
+      - name: GitHub Pages
+        uses: crazy-max/ghaction-github-pages@v1.2.5
+        with:
+          # Build directory to deploy
+          build_dir: Builds/$BUILD_TARGET
