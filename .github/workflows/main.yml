@@ -7,12 +7,17 @@ env:
   UNITY_LICENSE_CONTENT: ${{ secrets.UNITY_LICENSE }}
   UNITY_USERNAME: ${{ secrets.UNITY_USERNAME }}
   UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
-  UNITY_ACTIVATION_FILE: ./unity3d.alf
 
 jobs:
 
-  getActivationFile:
-    name: Get Activation File
+  buildForWebGL:
+    name: Build Laser Defender for WebGL 🕸
+    runs-on: ubuntu-latest
+    env:
+      BUILD_TARGET: WebGL
+      IMAGE_NAME: gableroux/unity3d:2018.3.0f2-webgl
+      UNITY_ACTIVATION_FILE: ./unity3d.alf
+
     steps:
       - name: Run activation file fetching script
         uses: "chmod +x ./ci/get_activation_file.sh && ./ci/get_activation_file.sh"
@@ -23,16 +28,6 @@ jobs:
           name: ActivationFile
           path: $UNITY_ACTIVATION_FILE
 
-
-
-  buildForWebGL:
-    name: Build Laser Defender for WebGL 🕸
-    runs-on: ubuntu-latest
-    env:
-      BUILD_TARGET: WebGL
-      IMAGE_NAME: gableroux/unity3d:2018.3.0f2-webgl
-
-    steps:
       - name: Checkout
         uses: actions/checkout@v1
 
