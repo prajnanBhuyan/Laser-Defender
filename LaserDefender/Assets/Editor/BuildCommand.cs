@@ -4,7 +4,7 @@ using System;
 using System.IO;
 namespace UnityBuilderAction
 {
-    static class BuildCommand
+    public class BuildCommand
     {
         private const string KEYSTORE_PASS = "KEYSTORE_PASS";
         private const string KEY_ALIAS_PASS = "KEY_ALIAS_PASS";
