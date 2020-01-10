@@ -22,15 +22,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
 
-      - name: Run activation file fetching script
-        run: "chmod +x ./ci/get_activation_file.sh && ./ci/get_activation_file.sh"
-
-      - name: Upload Artifacts
-        uses: actions/upload-artifact@v1
-        with:
-          name: ActivationFile
-          path: $UNITY_ACTIVATION_FILE
-
       - name: Build
         run: "chmod +x ./ci/docker_build.sh && ./ci/docker_build.sh"
 
