@@ -20,7 +20,7 @@ jobs:
 
     steps:
       - name: Run activation file fetching script
-        uses: "chmod +x ./ci/get_activation_file.sh && ./ci/get_activation_file.sh"
+        run: "chmod +x ./ci/get_activation_file.sh && ./ci/get_activation_file.sh"
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v1
