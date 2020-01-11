@@ -37,6 +37,7 @@ public class Player : MonoBehaviour
     Coroutine firingCoroutine;
     bool isFiring;
 
+    public int Health { get { return health; } }
 
     // Start is called before the first frame update
     void Start()

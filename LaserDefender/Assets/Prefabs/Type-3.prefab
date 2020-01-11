@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 3308170708586892174}
   - component: {fileID: 3308170708586892175}
   - component: {fileID: 6916627091141186764}
-  - component: {fileID: 8678856193376786377}
-  - component: {fileID: 1236625847767540177}
-  - component: {fileID: 1660609567050598138}
-  - component: {fileID: 7652126998179528585}
+  - component: {fileID: 6232927800014108410}
+  - component: {fileID: 9157852281094908395}
+  - component: {fileID: 7227393562224889064}
+  - component: {fileID: 6405505645056368250}
   m_Layer: 9
   m_Name: Type-3
   m_TagString: Untagged
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 48082b53aa735614189a44bac8a4a8f2, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 1360d5c58ff5f9a43bce7717c5a377a4, type: 3}
+  m_Color: {r: 1, g: 0.20851983, b: 0.1462264, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8b8ffe1447225d4386728a274d630df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8678856193376786377
+--- !u!114 &6232927800014108410
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,9 +108,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c44e9306952704fbc62df10eef8e06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  minTimeBetweenShots: 0.5
-  maxTimeBetweenShots: 1.25
+  health: 600
+  scoreValue: 460
+  minTimeBetweenShots: 0.2
+  maxTimeBetweenShots: 0.6
   projectile: {fileID: 2483670349175181284, guid: 8a0c2784a77d64643830bd77d7a2d759,
     type: 3}
   projectileSpeed: 10
@@ -119,9 +120,9 @@ MonoBehaviour:
   durationOfExplosion: 1
   deathSFX: {fileID: 8300000, guid: c75a7c9909dcbe945be4cb1aabcd19e9, type: 3}
   deathSFXVolume: 0.75
-  shootSFX: {fileID: 8300000, guid: bdf173c18f2d6b34db2f09b8cf3d2f9e, type: 3}
+  shootSFX: {fileID: 8300000, guid: d93f95c05cb275c488fea9d1d583fbe4, type: 3}
   shootSFXVolume: 0.3
---- !u!58 &1236625847767540177
+--- !u!58 &9157852281094908395
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,8 +137,8 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.515
---- !u!50 &1660609567050598138
+  m_Radius: 0.52
+--- !u!50 &7227393562224889064
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -158,7 +159,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7652126998179528585
+--- !u!114 &6405505645056368250
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
