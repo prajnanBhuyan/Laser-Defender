@@ -15,7 +15,7 @@ public class WaveConfig : ScriptableObject
     float timeBetweenSpawns = 0.5f;
 
     [SerializeField]
-    float spawnRandomRactor = 0.3f;
+    float spawnRandomFactor = 0.3f;
 
     [SerializeField]
     int numberOfEnemies = 5;
@@ -25,7 +25,7 @@ public class WaveConfig : ScriptableObject
 
     public GameObject EnemyPrefab { get => enemyPrefab; }
     public float TimeBetweenSpawns { get => timeBetweenSpawns; }
-    public float SpawnRandomRactor { get => spawnRandomRactor; }
+    public float SpawnRandomRactor { get => spawnRandomFactor; }
     public int NumberOfEnemies { get => numberOfEnemies; }
     public float MoveSpeed { get => moveSpeed; }
 

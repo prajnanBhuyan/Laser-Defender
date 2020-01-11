@@ -100,6 +100,10 @@ MonoBehaviour:
     type: 3}
   projectileSpeed: 20
   projectileFiringPeriod: 0.1
+  deathSFX: {fileID: 8300000, guid: d8639787e956fbe4c9ceca16b030d66e, type: 3}
+  deathSFXVolume: 0.75
+  shootSFX: {fileID: 8300000, guid: 7dbcd7dbe5d3c1a4bb5e59a9036340c0, type: 3}
+  shootSFXVolume: 0.15
 --- !u!58 &5862364077797663799
 CircleCollider2D:
   m_ObjectHideFlags: 0
