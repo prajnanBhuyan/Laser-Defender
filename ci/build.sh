@@ -8,8 +8,16 @@ echo "Building for $BUILD_TARGET"
 export BUILD_PATH=/project/Builds/$BUILD_TARGET/
 mkdir -p $BUILD_PATH
 
+echo "== DEBUGING =========================================================="
+echo "PWD: " + $(pwd)
+echo "Current Dir:"
+ll -a
+echo "Rec:"
+ll -R
+echo "======================================================================"
+
 ${UNITY_EXECUTABLE:-xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/Editor/Unity} \
-  -projectPath=$(pwd) \
+  -projectPath=$(pwd)/LaserDefender \
   -quit \
   -batchmode \
   -buildTarget $BUILD_TARGET \
