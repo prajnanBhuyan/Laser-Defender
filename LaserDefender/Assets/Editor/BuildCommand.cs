@@ -1,4 +1,4 @@
-using UnityEditor;
+﻿using UnityEditor;
 using System.Linq;
 using System;
 using System.IO;
@@ -50,7 +50,7 @@ namespace UnityBuilderAction
 #endif
             }
 
-            if (buildTargetName.TryConvertToEnum(out BuildTarget target))
+            if (Enum.TryParse(buildTargetName, true, out BuildTarget target))
                 return target;
 
             Console.WriteLine($":: {nameof(buildTargetName)} \"{buildTargetName}\" not defined on enum {nameof(BuildTarget)}, using {nameof(BuildTarget.NoTarget)} enum to build");
@@ -109,7 +109,7 @@ namespace UnityBuilderAction
                 {
                     optionVar = allOptionVars[i];
 
-                    if (optionVar.TryConvertToEnum(out option))
+                    if (Enum.TryParse(optionVar, true, out option))
                     {
                         allOptions |= option;
                     }
@@ -123,19 +123,6 @@ namespace UnityBuilderAction
             }
 
             return BuildOptions.None;
-        }
-
-        // https://stackoverflow.com/questions/1082532/how-to-tryparse-for-enum-value
-        static bool TryConvertToEnum<TEnum>(this string strEnumValue, out TEnum value)
-        {
-            if (!Enum.IsDefined(typeof(TEnum), strEnumValue))
-            {
-                value = default;
-                return false;
-            }
-
-            value = (TEnum)Enum.Parse(typeof(TEnum), strEnumValue);
-            return true;
         }
 
         static bool TryGetEnv(string key, out string value)
