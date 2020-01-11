@@ -11,10 +11,12 @@ GameObject:
   - component: {fileID: 3308170708586892174}
   - component: {fileID: 3308170708586892175}
   - component: {fileID: 6916627091141186764}
-  - component: {fileID: 4077777478579012790}
-  - component: {fileID: 4883850157795913008}
+  - component: {fileID: 5765148627971764368}
+  - component: {fileID: 5103243141647243556}
+  - component: {fileID: 8572618597617224778}
+  - component: {fileID: 2771981377068016777}
   m_Layer: 9
-  m_Name: enemyBlack1
+  m_Name: Type-4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,12 +73,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: faf688ded56c8e24a8d3770736dc5f77, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a61a74475567a2946aab344f51016892, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.93, y: 0.84}
+  m_Size: {x: 0.82, y: 0.84}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -94,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8b8ffe1447225d4386728a274d630df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4077777478579012790
+--- !u!114 &5765148627971764368
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,8 +109,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  minTimeBetweenShots: 1
-  maxTimeBetweenShots: 1.25
+  minTimeBetweenShots: 0.3
+  maxTimeBetweenShots: 1
   projectile: {fileID: 2483670349175181284, guid: 8a0c2784a77d64643830bd77d7a2d759,
     type: 3}
   projectileSpeed: 10
@@ -119,7 +121,7 @@ MonoBehaviour:
   deathSFXVolume: 0.75
   shootSFX: {fileID: 8300000, guid: bdf173c18f2d6b34db2f09b8cf3d2f9e, type: 3}
   shootSFXVolume: 0.3
---- !u!58 &4883850157795913008
+--- !u!58 &5103243141647243556
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,9 +131,43 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.465
+  m_Radius: 0.42
+--- !u!50 &8572618597617224778
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3308170708586892172}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &2771981377068016777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3308170708586892172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afd94f78e8534ce48b09cdbeb9b1a654, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 200
