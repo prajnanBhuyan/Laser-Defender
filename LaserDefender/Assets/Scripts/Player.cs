@@ -117,7 +117,7 @@ public class Player : MonoBehaviour
 
     private void ProcessHit(DamageDealer damageDealer)
     {
-        health -= damageDealer.Damage;
+        health -= Mathf.Min(damageDealer.Damage, health);
         damageDealer.Hit();
         if (health <= 0)
         {
