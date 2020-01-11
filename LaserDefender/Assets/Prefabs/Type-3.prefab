@@ -108,13 +108,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c44e9306952704fbc62df10eef8e06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 600
+  health: 1000
   scoreValue: 460
-  minTimeBetweenShots: 0.2
-  maxTimeBetweenShots: 0.6
-  projectile: {fileID: 2483670349175181284, guid: 8a0c2784a77d64643830bd77d7a2d759,
+  minTimeBetweenShots: 1
+  maxTimeBetweenShots: 2
+  projectile: {fileID: 2483670349175181284, guid: c2b3a2429bfa6c84ea490e05d32b3161,
     type: 3}
-  projectileSpeed: 10
+  projectileSpeed: 5
   deathVFX: {fileID: 7851126686202412449, guid: 875582f24d9d9b34a8d6c3e36e2fdf6f,
     type: 3}
   durationOfExplosion: 1
